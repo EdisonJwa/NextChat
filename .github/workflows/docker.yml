@@ -13,19 +13,27 @@ jobs:
       -
         name: Check out the repo
         uses: actions/checkout@v3
+
+      - 
+        name: Apply custom patch
+        run: |
+          echo '77u/ZGlmZiAtLWdpdCBhL2FwcC9sYXlvdXQudHN4IGIvYXBwL2xheW91dC50c3gKaW5kZXggNDdjMDU4ZmIuLmU4MzkwOTY4IDEwMDY0NAotLS0gYS9hcHAvbGF5b3V0LnRzeAorKysgYi9hcHAvbGF5b3V0LnRzeApAQCAtNyw2ICs3LDcgQEAgaW1wb3J0IHR5cGUgeyBNZXRhZGF0YSwgVmlld3BvcnQgfSBmcm9tICJuZXh0IjsKIGltcG9ydCB7IFNwZWVkSW5zaWdodHMgfSBmcm9tICJAdmVyY2VsL3NwZWVkLWluc2lnaHRzL25leHQiOwogaW1wb3J0IHsgR29vZ2xlVGFnTWFuYWdlciwgR29vZ2xlQW5hbHl0aWNzIH0gZnJvbSAiQG5leHQvdGhpcmQtcGFydGllcy9nb29nbGUiOwogaW1wb3J0IHsgZ2V0U2VydmVyU2lkZUNvbmZpZyB9IGZyb20gIi4vY29uZmlnL3NlcnZlciI7CitpbXBvcnQgeyB1c2VFZmZlY3QgfSBmcm9tICJyZWFjdCI7CiAKIGV4cG9ydCBjb25zdCBtZXRhZGF0YTogTWV0YWRhdGEgPSB7CiAgIHRpdGxlOiAiTmV4dENoYXQiLApAQCAtMjcsNiArMjgsNTEgQEAgZXhwb3J0IGNvbnN0IHZpZXdwb3J0OiBWaWV3cG9ydCA9IHsKICAgXSwKIH07CiAKK2Z1bmN0aW9uIGFkZE11bHRpcGxlV2F0ZXJtYXJrcyhsaW5lczogc3RyaW5nW10pIHsKKyAgY29uc3QgZXhpc3RpbmdXYXRlcm1hcmsgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgid2F0ZXJtYXJrLWNvbnRhaW5lciIpOworICBpZiAoZXhpc3RpbmdXYXRlcm1hcmspIHsKKyAgICBleGlzdGluZ1dhdGVybWFyay5yZW1vdmUoKTsKKyAgfQorCisgIGNvbnN0IGNvbnRhaW5lciA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoImRpdiIpOworICBjb250YWluZXIuaWQgPSAid2F0ZXJtYXJrLWNvbnRhaW5lciI7CisgIGNvbnRhaW5lci5zdHlsZS5wb3NpdGlvbiA9ICJmaXhlZCI7CisgIGNvbnRhaW5lci5zdHlsZS50b3AgPSAiMCI7CisgIGNvbnRhaW5lci5zdHlsZS5sZWZ0ID0gIjAiOworICBjb250YWluZXIuc3R5bGUud2lkdGggPSAiMTAwdnciOworICBjb250YWluZXIuc3R5bGUuaGVpZ2h0ID0gIjEwMHZoIjsKKyAgY29udGFpbmVyLnN0eWxlLmRpc3BsYXkgPSAiZ3JpZCI7CisgIGNvbnRhaW5lci5zdHlsZS5ncmlkVGVtcGxhdGVDb2x1bW5zID0gInJlcGVhdCgzLCAxZnIpIjsKKyAgY29udGFpbmVyLnN0eWxlLmdyaWRUZW1wbGF0ZVJvd3MgPSAicmVwZWF0KDMsIDFmcikiOworICBjb250YWluZXIuc3R5bGUucG9pbnRlckV2ZW50cyA9ICJub25lIjsKKyAgY29udGFpbmVyLnN0eWxlLnpJbmRleCA9ICI5OTk5IjsKKworICBmdW5jdGlvbiB1cGRhdGVXYXRlcm1hcmtDb2xvcigpIHsKKyAgICBjb25zdCBpc0RhcmtNb2RlID0gd2luZG93Lm1hdGNoTWVkaWEoIihwcmVmZXJzLWNvbG9yLXNjaGVtZTogZGFyaykiKS5tYXRjaGVzOworICAgIGNvbnN0IGNvbG9yID0gaXNEYXJrTW9kZSA/ICJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkiIDogInJnYmEoMCwgMCwgMCwgMC4xKSI7CisKKyAgICBjb250YWluZXIuaW5uZXJIVE1MID0gIiI7CisKKyAgICBmb3IgKGxldCBpID0gMDsgaSA8IDk7IGkrKykgeworICAgICAgY29uc3Qgd2F0ZXJtYXJrID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgiZGl2Iik7CisgICAgICB3YXRlcm1hcmsuaW5uZXJUZXh0ID0gbGluZXMuam9pbigiXG4iKTsKKyAgICAgIHdhdGVybWFyay5zdHlsZS5mb250U2l6ZSA9ICIxOHB4IjsKKyAgICAgIHdhdGVybWFyay5zdHlsZS5jb2xvciA9IGNvbG9yOworICAgICAgd2F0ZXJtYXJrLnN0eWxlLnRleHRBbGlnbiA9ICJsZWZ0IjsKKyAgICAgIHdhdGVybWFyay5zdHlsZS53aGl0ZVNwYWNlID0gInByZS1saW5lIjsKKyAgICAgIHdhdGVybWFyay5zdHlsZS5saW5lSGVpZ2h0ID0gIjEuNSI7CisgICAgICB3YXRlcm1hcmsuc3R5bGUudHJhbnNmb3JtID0gInJvdGF0ZSgtMzBkZWcpIjsKKyAgICAgIHdhdGVybWFyay5zdHlsZS5hbGlnblNlbGYgPSAiY2VudGVyIjsKKyAgICAgIHdhdGVybWFyay5zdHlsZS5qdXN0aWZ5U2VsZiA9ICJjZW50ZXIiOworICAgICAgY29udGFpbmVyLmFwcGVuZENoaWxkKHdhdGVybWFyayk7CisgICAgfQorICB9CisKKyAgdXBkYXRlV2F0ZXJtYXJrQ29sb3IoKTsKKyAgd2luZG93Lm1hdGNoTWVkaWEoIihwcmVmZXJzLWNvbG9yLXNjaGVtZTogZGFyaykiKS5hZGRFdmVudExpc3RlbmVyKCJjaGFuZ2UiLCB1cGRhdGVXYXRlcm1hcmtDb2xvcik7CisgIGRvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQoY29udGFpbmVyKTsKK30KKwogZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gUm9vdExheW91dCh7CiAgIGNoaWxkcmVuLAogfTogewpAQCAtMzQsNiArODAsMTMgQEAgZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gUm9vdExheW91dCh7CiB9KSB7CiAgIGNvbnN0IHNlcnZlckNvbmZpZyA9IGdldFNlcnZlclNpZGVDb25maWcoKTsKIAorICB1c2VFZmZlY3QoKCkgPT4geworICAgIGFkZE11bHRpcGxlV2F0ZXJtYXJrcyhbCisgICAgICAi4pqg77iPIOivt+WLv+WPkemAgeacuuWvhuS/oeaBryIsCisgICAgICAi4pqg77iPIE5vIGNvbmZpZGVudGlhbCBpbmZvcm1hdGlvbiIsCisgICAgXSk7CisgIH0sIFtdKTsKKyAgCiAgIHJldHVybiAoCiAgICAgPGh0bWwgbGFuZz0iZW4iPgogICAgICAgPGhlYWQ+Cg==' | base64 --decode | tee my_custom_patch_file.patch
+          git apply my_custom_patch_file.patch || patch -p1 < my_custom_patch_file.patch
+          
       -
-        name: Log in to Docker Hub
-        uses: docker/login-action@v2
+        name: Login to docker ghcr.io registry
+        uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       
       - 
         name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: yidadaa/chatgpt-next-web
+          images: ghcr.io/edisonjwa/chatgpt-next-web
           tags: |
             type=raw,value=latest
             type=ref,event=tag
